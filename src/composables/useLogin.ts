@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword, signOut } from '@firebase/auth'
-import { toRefs, reactive, computed } from '@vue/composition-api'
+import { toRefs, reactive, computed } from 'vue'
 import 'firebase/firestore'
 import auth from '@/services/firebase'
 

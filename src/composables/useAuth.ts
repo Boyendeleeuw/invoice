@@ -1,9 +1,10 @@
-import { toRefs, reactive } from '@vue/composition-api'
+import { toRefs, reactive } from 'vue'
 import { onAuthStateChanged } from 'firebase/auth'
 import auth from '@/services/firebase'
+import { State } from '@/types/auth.type'
 
 export default function() {
-    const state = reactive({
+    const state: State = reactive({
         user: null,
         loading: true,
         error: null
