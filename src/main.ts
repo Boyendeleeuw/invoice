@@ -1,18 +1,11 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import App from '@/App.vue'
+import router from './router/router'
+import VueCompositionApi from '@vue/composition-api'
 
-const firebaseConfig = {
-    apiKey: process.env.VUE_APP_API_KEY,
-    authDomain: "invoice-d70f8.firebaseapp.com",
-    projectId: "invoice-d70f8",
-    storageBucket: "invoice-d70f8.appspot.com",
-    messagingSenderId: process.env.VUE_APP_MESSAGE_SENDER_ID,
-    appId: process.env.VUE_APP_APP_ID
-};
+const app = createApp(App)
 
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+app.use(VueCompositionApi)
+app.use(router)
 
-createApp(App).mount('#app')
+app.mount('#app')

@@ -1,21 +1,13 @@
 <template>
-  <Clients />
-
-  <Invoices />
+  <router-view />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Clients from "@/views/clients/Clients.vue";
-import Invoices from "@/views/invoices/Invoices.vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "App",
-  components: {
-    Clients,
-    Invoices,
-  },
-});
+    name: 'App'
+})
 </script>
 
 <style lang="scss">

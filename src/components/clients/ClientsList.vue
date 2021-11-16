@@ -20,26 +20,26 @@
 </template>
 
 <script lang="ts">
-import { Client } from "@/types/clients.type";
+import { Client } from '@/types/clients.type'
 
 export default {
-  name: "ClientsList",
-  setup() {
-    const clients: Client[] = [
-      {
-        id: "1",
-        name: "Boyen",
-        company: "de Leeuw BV",
-        address: "Nieuwstraat 71",
-        zipCode: "9724KH Groningen",
-      },
-    ];
+    name: 'ClientsList',
+    setup() {
+        const clients: Client[] = [
+            {
+                id: '1',
+                name: 'Boyen',
+                company: 'de Leeuw BV',
+                address: 'Nieuwstraat 71',
+                zipCode: '9724KH Groningen',
+            },
+        ]
 
-    return {
-      clients,
-    };
-  },
-};
+        return {
+            clients,
+        }
+    },
+}
 </script>
 
 <style>

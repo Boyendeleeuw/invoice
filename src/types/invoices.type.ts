@@ -1,4 +1,4 @@
-import { Client } from "./clients.type";
+import { Client } from './clients.type'
 
 export interface Invoice {
     id: string,
