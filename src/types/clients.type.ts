@@ -1,7 +1,9 @@
 export interface Client {
     id: string,
-    name: string,
     company: string,
+    contact: string,
     address: string,
-    zipCode: string
+    zipCode: string,
+    city: string,
+    error?: string | null
 }

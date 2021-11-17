@@ -1,7 +1,7 @@
 import { User } from '@firebase/auth'
 
 export interface State {
-    user: User,
+    user: User | null,
     loading: boolean,
-    error: string
+    error: string | null
 }

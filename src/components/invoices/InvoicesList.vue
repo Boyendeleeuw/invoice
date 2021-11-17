@@ -33,10 +33,11 @@ export default {
                 dueDate: new Date('01-14-2021'),
                 client: {
                     id: '1',
-                    name: 'Boyen',
+                    contact: 'Boyen',
                     company: 'de Leeuw BV',
                     address: 'Nieuwstraat 71',
                     zipCode: '9724KH Groningen',
+                    city: 'Groningen'
                 },
                 amount: 100,
                 tax: 1,
@@ -54,7 +55,7 @@ export default {
             invoices,
             dateOptions,
         }
-    },
+    }
 }
 </script>
 

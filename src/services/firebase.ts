@@ -7,10 +7,13 @@ const firebaseConfig = {
     projectId: 'invoice-d70f8',
     storageBucket: 'invoice-d70f8.appspot.com',
     messagingSenderId: process.env.VUE_APP_MESSAGE_SENDER_ID,
-    appId: process.env.VUE_APP_APP_ID
+    appId: process.env.VUE_APP_APP_ID,
+    databaseURL: 'https://invoice-d70f8-default-rtdb.europe-west1.firebasedatabase.app'
 }
 
 const firebaseApp = initializeApp(firebaseConfig)
 const auth = getAuth(firebaseApp)
 
-export default auth
+export default {
+    auth
+}

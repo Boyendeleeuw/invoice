@@ -6,10 +6,18 @@ const routes: Array<RouteRecordRaw> = [
         path: '/',
         name: 'HomeView',
         component: HomeView
-    // }, {
-        // path: '/login',
-        // name: 'LoginUser',
-        // component: () => import('@/views/auth/LoginUser.vue'),
+    }, {
+        path: '/clients',
+        name: 'ClientsOverview',
+        component: () => import('@/views/clients/ClientsOverview.vue')
+    }, {
+        path: '/clients/add',
+        name: 'ClientsAdd',
+        component: () => import('@/views/clients/ClientsAdd.vue'),
+    }, {
+        path: '/invoices',
+        name: 'InvoicesOverview',
+        component: () => import('@/views/invoices/InvoicesOverview.vue'),
     }
 ]
 

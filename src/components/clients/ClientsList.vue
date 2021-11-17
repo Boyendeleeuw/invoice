@@ -1,42 +1,41 @@
 <template>
   <table>
     <thead>
-      <th>ID</th>
       <th>Name</th>
       <th>Company</th>
       <th>Address</th>
       <th>Zip Code</th>
+      <th>City</th>
+      <th>Actions</th>
     </thead>
     <tbody>
-      <tr v-for="client in clients" :key="client">
-        <td>{{ client.id }}</td>
-        <td>{{ client.name }}</td>
+      <tr v-for="client in allClients" :key="client">
         <td>{{ client.company }}</td>
+        <td>{{ client.contact }}</td>
         <td>{{ client.address }}</td>
         <td>{{ client.zipCode }}</td>
+        <td>{{ client.city }}</td>
       </tr>
     </tbody>
   </table>
+  <div v-if="error">
+    {{ error }}
+  </div>
+  <font-awesome-icon icon="spinner" />
 </template>
 
 <script lang="ts">
-import { Client } from '@/types/clients.type'
+import useClient from '@/composables/useClient'
 
 export default {
     name: 'ClientsList',
     setup() {
-        const clients: Client[] = [
-            {
-                id: '1',
-                name: 'Boyen',
-                company: 'de Leeuw BV',
-                address: 'Nieuwstraat 71',
-                zipCode: '9724KH Groningen',
-            },
-        ]
+        let clients = useClient()
+
+        clients.getClients()
 
         return {
-            clients,
+            ...clients,
         }
     },
 }

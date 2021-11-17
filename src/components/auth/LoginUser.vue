@@ -17,6 +17,9 @@
             <button class="btn-primary" @click="login">Login</button>
           </div>
         </div>
+        <div v-if="error">
+          {{ error }}
+        </div>
       </form>
     </div>
   </section>

@@ -20,42 +20,43 @@
 </template>
 
 <script lang="ts">
-import { Invoice } from "@/types/invoices.type";
+import { Invoice } from '@/types/invoices.type'
 
 export default {
-  name: "InvoicesList",
-  setup() {
-    const invoices: Invoice[] = [
-      {
-        id: "1",
-        invoiceNumber: "20210001",
-        date: new Date("01-01-2021"),
-        dueDate: new Date("01-14-2021"),
-        client: {
-          id: "1",
-          name: "Boyen",
-          company: "de Leeuw BV",
-          address: "Nieuwstraat 71",
-          zipCode: "9724KH Groningen",
-        },
-        amount: 100,
-        tax: 1,
-        totalAmount: 121,
-        payment: "Complete",
-      },
-    ];
-    const dateOptions = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
+    name: 'InvoicesList',
+    setup() {
+        const invoices: Invoice[] = [
+            {
+                id: '1',
+                invoiceNumber: '20210001',
+                date: new Date('01-01-2021'),
+                dueDate: new Date('01-14-2021'),
+                client: {
+                    id: '1',
+                    contact: 'Boyen',
+                    company: 'de Leeuw BV',
+                    address: 'Nieuwstraat 71',
+                    zipCode: '9724KH Groningen',
+                    city: 'Groningen'
+                },
+                amount: 100,
+                tax: 1,
+                totalAmount: 121,
+                payment: 'Complete',
+            },
+        ]
+        const dateOptions = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        }
 
-    return {
-      invoices,
-      dateOptions,
-    };
-  },
-};
+        return {
+            invoices,
+            dateOptions,
+        }
+    },
+}
 </script>
 
 <style>

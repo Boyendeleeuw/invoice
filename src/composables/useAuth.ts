@@ -10,7 +10,7 @@ export default function() {
         error: null
     })
 
-    onAuthStateChanged(auth, _user => {
+    onAuthStateChanged(auth.auth, _user => {
         if (_user) {
             state.user = _user
         } else {

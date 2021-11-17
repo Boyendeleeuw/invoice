@@ -1,11 +1,11 @@
 <template>
     <div v-if="loading">Loading ...</div>
     <div v-else-if="error">
-        Error
+        Error: {{ error }}
     </div>
     <div v-else-if="user">
-        <ClientsOverview />
-        <InvoicesOverview />
+        <router-link to="/clients">Client overview</router-link>
+        <router-link to="/invoices">Invoice overview</router-link>
         <button @click.prevent="logout">Logout</button>
     </div>
     <LoginUser v-else />
@@ -13,8 +13,6 @@
 
 <script>
 import { computed } from 'vue'
-import ClientsOverview from '@/views/clients/ClientsOverview.vue'
-import InvoicesOverview from '@/views/invoices/InvoicesOverview.vue'
 import LoginUser from '@/components/auth/LoginUser.vue'
 import useAuth from '@/composables/useAuth'
 import useLogin from '@/composables/useLogin'
@@ -22,8 +20,6 @@ import useLogin from '@/composables/useLogin'
 export default {
     name: 'HomeView',
     components: {
-        ClientsOverview,
-        InvoicesOverview,
         LoginUser,
     },
     setup() {

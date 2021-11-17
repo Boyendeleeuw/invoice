@@ -20,7 +20,7 @@ export default function() {
     })
 
     const login = () => {
-        signInWithEmailAndPassword(auth, String(state.username), String(state.password))
+        signInWithEmailAndPassword(auth.auth, String(state.username), String(state.password))
             .then((userCredential) => {
                 console.log(userCredential)
             }, error => (state.error = error))
@@ -30,7 +30,7 @@ export default function() {
     }
 
     const logout = () => {
-        signOut(auth)
+        signOut(auth.auth)
             .then(() => {
                 //
             }, error => (state.error = error))
