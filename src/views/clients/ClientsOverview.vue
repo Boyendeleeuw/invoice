@@ -1,4 +1,5 @@
 <template>
+  <h2>Clients</h2>
   <router-link :to="{ name: 'ClientsAdd' }">Add new client</router-link>
   <ClientsList />
 </template>

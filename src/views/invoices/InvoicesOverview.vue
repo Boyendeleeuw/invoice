@@ -1,4 +1,6 @@
 <template>
+  <h2>Invoices</h2>
+  <router-link :to="{ name: 'InvoicesAdd' }">Create new invoice</router-link>
   <InvoicesList />
 </template>
 

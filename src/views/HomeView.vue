@@ -4,9 +4,22 @@
         Error: {{ error }}
     </div>
     <div v-else-if="user">
-        <router-link to="/clients">Client overview</router-link>
-        <router-link to="/invoices">Invoice overview</router-link>
-        <button @click.prevent="logout">Logout</button>
+        <div class="group">
+            <h2>Clients</h2>
+            <router-link to="/clients">Client overview</router-link>
+        </div>
+
+        <div>
+            <h2>Invoices</h2>
+            <router-link to="/invoices">Invoice overview</router-link>
+        </div>
+
+        <div>
+            <h2>Settings</h2>
+            <router-link to="/settings">Settings</router-link>
+        </div>
+        <br>
+        <button class="logout" @click.prevent="logout">Logout</button>
     </div>
     <LoginUser v-else />
 </template>
@@ -36,6 +49,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../assets/scss/_var';
+    button,
+    a {
+        @extend %button;
+        text-decoration: none;
+    }
 
+    button.logout,
+    button.action {
+        background-color: #cecece;
+    }
+
+    button.action-repeat {
+        background-color: $red;
+    }
 </style>

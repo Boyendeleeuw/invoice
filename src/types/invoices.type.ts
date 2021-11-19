@@ -6,13 +6,15 @@ export interface Invoice {
     date: Date,
     dueDate: Date,
     client: Client,
+    jobs: Array<Job>,
     amount: number,
-    tax: Tax,
     totalAmount: number,
     payment: string
 }
 
-enum Tax {
-    Low = 0,
-    High = 1,
+export interface Job {
+    description: string,
+    hours?: number,
+    hourRate?: number,
+    amount: number
 }

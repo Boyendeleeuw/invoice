@@ -1,6 +1,6 @@
 import { toRefs, reactive, computed } from 'vue'
 import { Client } from '@/types/clients.type'
-import { getDatabase, onValue, ref, set } from 'firebase/database'
+import { getDatabase, onValue, ref, remove, set } from 'firebase/database'
 import { useRouter } from 'vue-router'
 import { ref as ref2 } from 'vue'
 
@@ -32,9 +32,10 @@ export default function() {
 
     const createClient = () => {
         if (isValid.value) {
-            set(ref(db, 'clients/' + client.company), {
+            const id = Date.now().toString(36) + Math.random().toString(36).substr(2)
+            set(ref(db, 'clients/' + id), {
                 // create unique id
-                id: Date.now().toString(36) + Math.random().toString(36).substr(2),
+                id: id,
                 company: client.company,
                 contact: client.contact,
                 address: client.address,
@@ -62,10 +63,22 @@ export default function() {
         })
     }
 
+    const deleteClient = (clientId: number) => {
+        const clientRef = ref(db, 'clients/' + clientId)
+        remove(clientRef).then(() => {
+            router.push({
+                name: 'ClientsOverview'
+            })
+        }).catch((error) => {
+            client.error = error
+        })
+    }
+
     return {
         ...toRefs(client),
         allClients,
         createClient,
+        deleteClient,
         getClients
     }
 }

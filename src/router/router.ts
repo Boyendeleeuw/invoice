@@ -18,6 +18,14 @@ const routes: Array<RouteRecordRaw> = [
         path: '/invoices',
         name: 'InvoicesOverview',
         component: () => import('@/views/invoices/InvoicesOverview.vue'),
+    }, {
+        path: '/invoices/add',
+        name: 'InvoicesAdd',
+        component: () => import('@/views/invoices/InvoicesAdd.vue'),
+    }, {
+        path: '/settings',
+        name: 'SettingsView',
+        component: () => import('@/views/settings/SettingsView.vue'),
     }
 ]
 

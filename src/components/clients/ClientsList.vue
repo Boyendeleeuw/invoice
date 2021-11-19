@@ -9,19 +9,24 @@
       <th>Actions</th>
     </thead>
     <tbody>
-      <tr v-for="client in allClients" :key="client">
+      <tr v-for="(client, index) in allClients" :key="client">
         <td>{{ client.company }}</td>
         <td>{{ client.contact }}</td>
         <td>{{ client.address }}</td>
         <td>{{ client.zipCode }}</td>
         <td>{{ client.city }}</td>
+        <td>
+          <button @click="itemToDelete = index" class="action">
+            <font-awesome-icon icon="times" />
+          </button>
+          <button v-show="itemToDelete == index" class="action-repeat" @click="deleteClient(client.id)">Are you sure?</button>
+        </td>
       </tr>
     </tbody>
   </table>
   <div v-if="error">
     {{ error }}
   </div>
-  <font-awesome-icon icon="spinner" />
 </template>
 
 <script lang="ts">
@@ -35,9 +40,14 @@ export default {
         clients.getClients()
 
         return {
-            ...clients,
+            ...clients
         }
     },
+    data() {
+        return {
+            itemToDelete: null
+        }
+    }
 }
 </script>
 
