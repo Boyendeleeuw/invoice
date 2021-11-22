@@ -1,0 +1,14 @@
+{
+    "global": {
+        "logout": "Logout",
+        "loading": "Loading"
+    },
+    "HomeView": {
+        "clientsTitle": "Clients",
+        "clientsLink": "Clients overview",
+        "invoicesTitle": "Invoices",
+        "invoicesLink": "Invoices overview",
+        "settingsTitle": "Settings",
+        "settingsLink": "Settings"
+    }
+}

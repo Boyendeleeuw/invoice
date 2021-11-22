@@ -1,0 +1,14 @@
+{
+    "global": {
+        "logout": "Uitloggen",
+        "loading": "Aan het laden"
+    },
+    "HomeView": {
+        "clientsTitle": "Klanten",
+        "clientsLink": "Klanten overzicht",
+        "invoicesTitle": "Facturen",
+        "invoicesLink": "'Overzicht facturen'",
+        "settingsTitle": "Instellingen",
+        "settingsLink": "Instellingen"
+    }
+}

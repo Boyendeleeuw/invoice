@@ -1,25 +1,25 @@
 <template>
-    <div v-if="loading">Loading ...</div>
+    <div v-if="loading">{{ t("global.loading") }} ...</div>
     <div v-else-if="error">
         Error: {{ error }}
     </div>
     <div v-else-if="user">
         <div class="group">
-            <h2>Clients</h2>
-            <router-link to="/clients">Client overview</router-link>
+            <h2>{{ t("HomeView.clientsTitle") }}</h2>
+            <router-link to="/clients">{{ t("HomeView.clientsLink") }}</router-link>
         </div>
 
         <div>
-            <h2>Invoices</h2>
-            <router-link to="/invoices">Invoice overview</router-link>
+            <h2>{{ t("HomeView.invoicesTitle") }}</h2>
+            <router-link to="/invoices">{{ t("HomeView.invoicesLink") }}</router-link>
         </div>
 
         <div>
-            <h2>Settings</h2>
-            <router-link to="/settings">Settings</router-link>
+            <h2>{{ t("HomeView.settingsTitle") }}</h2>
+            <router-link to="/settings">{{ t("HomeView.settingsLink") }}</router-link>
         </div>
         <br>
-        <button class="logout" @click.prevent="logout">Logout</button>
+        <button class="logout" @click.prevent="logout">{{ t("global.logout") }}</button>
     </div>
     <LoginUser v-else />
 </template>
@@ -29,6 +29,7 @@ import { computed } from 'vue'
 import LoginUser from '@/components/auth/LoginUser.vue'
 import useAuth from '@/composables/useAuth'
 import useLogin from '@/composables/useLogin'
+import { useI18n } from 'vue-i18n'
 
 export default {
     name: 'HomeView',
@@ -38,8 +39,10 @@ export default {
     setup() {
         let { user, loading, error } = useAuth()
         let loginState = useLogin()
+        const { t } = useI18n() // call `useI18n`, and spread `t` from  `useI18n` returning
 
         return {
+            t,
             user,
             loading,
             error: computed(() => (loginState.error || error).value),
