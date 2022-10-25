@@ -2,6 +2,7 @@
   <div class="container">
     <router-view />
   </div>
+  
 </template>
 
 <script lang="ts">
